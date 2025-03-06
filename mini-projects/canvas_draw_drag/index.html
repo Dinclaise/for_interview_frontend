@@ -1,0 +1,42 @@
+<<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas_Draw_Drag</title>
+
+</head>
+<body>
+    <div>
+        <button id="select-rectangle">Rectangle</button>
+        <button id="select-triangle">Triangle</button>
+        <button id="select-line">Line</button>
+    </div>
+    <div>
+        <label for="color-picker">Choose color:</label>
+        <input type="color" id="color-picker" value="#ff0000">
+    </div>
+
+    <div>
+        <label for="border-color-picker">Choose border color:</label>
+        <input type="color" id="border-color-picker" value="#000000">
+    </div>
+    <div>
+        <label for="border-type-select">Choose a pet:</label>
+
+        <select id="border-type-select">
+            <option value="">--Please choose an option--</option>
+            <option value="solid">Solid</option>
+            <option value="dashed">Dashed</option>
+        </select>
+    </div>
+    <div>
+        <label for="border-width-input">Border width:</label>
+        <input type="number" id="border-width-input" value="1" min="1">
+    </div>
+    <canvas id="canvas" width="800" height="600" style="border: 1px solid black;"></canvas>
+    <script type="module" src="index.js"></script>
+</body>
+</html>
