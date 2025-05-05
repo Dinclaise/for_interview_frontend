@@ -1,4 +1,4 @@
-function intersections(s, t) {
+function intersectionsIntervals(s, t) {
     const result = [];
     let i = 0, j = 0;
 
@@ -25,5 +25,5 @@ function intersections(s, t) {
     return result;
 }
 
-console.log(intersections([[8, 12], [17, 22]], [[5, 11], [14, 18], [20, 23]])); // [[8, 11], [17, 18], [20, 22]]
-console.log(intersections([[9, 15], [18, 21]], [[10, 14], [21, 22]])); // [[10, 14]]
+console.log(intersectionsIntervals([[8, 12], [17, 22]], [[5, 11], [14, 18], [20, 23]])); // [[8, 11], [17, 18], [20, 22]]
+console.log(intersectionsIntervals([[9, 15], [18, 21]], [[10, 14], [21, 22]])); // [[10, 14]]

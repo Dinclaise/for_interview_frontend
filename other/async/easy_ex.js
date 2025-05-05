@@ -43,3 +43,26 @@ console.log('12', '?');
 
 // s | mi | ma
 //   |    |
+
+
+
+// #2
+
+console.log(1);
+setTimeout(() => console.log(2));
+Promise.resolve().then(() => console.log(3)).then(() => console.log(11));
+Promise.resolve().then(() => setTimeout(() => console.log(4)));
+Promise.resolve().then(() => console.log(5)).then(() => console.log(12));
+setTimeout(() => console.log(6));
+console.log(7);
+Promise.resolve().then(console.log('123'));
+async function wait() {
+    console.log(8);
+    let prom = await new Promise((resolve) => {
+        console.log(9);
+        setTimeout(resolve, 1000);
+    });
+}
+wait();
+
+// 1 7 123 8 9 3 5 11 12 2 6 4
