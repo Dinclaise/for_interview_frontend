@@ -4,13 +4,10 @@ let preorderTraversalR = function(root) {
 
     function dfs(node) {
         if (!node) return;
-
         // Посещаем текущий узел
         result.push(node.val);
-
         // Рекурсивно обходим левое поддерево
         dfs(node.left);
-
         // Рекурсивно обходим правое поддерево
         dfs(node.right);
     }

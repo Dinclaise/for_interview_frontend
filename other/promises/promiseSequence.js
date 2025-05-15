@@ -9,6 +9,10 @@ function promiseSequence(promises) {
     }, Promise.resolve([]));
 }
 
+// for (pr of promises) {
+//     await pr();
+// }
+
 // Пример использования
 const p1 = () => Promise.resolve(1);
 const p2 = () => Promise.resolve(2);

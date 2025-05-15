@@ -17,10 +17,8 @@ function treePaths(root) {
 
     function dfs(node, currentPath) {
         if (!node) return;
-
         // Добавляем текущее значение узла к пути
         currentPath += (currentPath ? '-' : '') + node.val;
-
         // Если это листовой узел, добавляем путь в результат
         if (!node.left && !node.right) {
             result.push(currentPath);
@@ -43,4 +41,7 @@ function treePaths(root) {
 
     return result;
 }
+
+console.log(treePaths(tree)); // [ '1-2-4', '1-2-5', '1-3' ]
+
 

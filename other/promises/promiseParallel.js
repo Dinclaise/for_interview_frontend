@@ -1,10 +1,10 @@
 function parallel(tasks, cb) {
     const promises = tasks.map((task) => {
         return new Promise((resolve) => {
-            if (task.length === 1) {
+            if (task.length === 1) { // Асинхронная задача (принимает resolve)
                 task(resolve)
             } else {
-                resolve(task())
+                resolve(task()) // Синхронная задача
             }
         })
     })
@@ -13,6 +13,7 @@ function parallel(tasks, cb) {
         .then(results => {
             cb(results)
         })
+        .catch(error => console.error('Ошибка:', error));
 }
 
 

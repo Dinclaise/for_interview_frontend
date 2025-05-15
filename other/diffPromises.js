@@ -38,7 +38,7 @@ asyncOperation().then((data) => {
 
 
 
-// 2  Promise.resolve()
+// 2  Promise.resolve() -  Является thenable (объектом с методом then, но не настоящим Promise).
 
 const resolvedPromise = Promise.resolve('Already resolved');
 

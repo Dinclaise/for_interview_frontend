@@ -23,3 +23,5 @@ function isIsomorphic(s, t) {
 
     return true;
 }
+
+isIsomorphic('abb', 'cdd')

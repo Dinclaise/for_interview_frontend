@@ -63,13 +63,19 @@ class Freelancer {
     }
 }
 
+type Proff = Employee | Freelancer
+
 // Type Guard для проверки наличия свойства 'role'
-function hasRole(person: any): person is { role: string } {
+// function hasRole(person: any): person is { role: string } {
+//     return "role" in person;
+// }
+
+function hasRole(person: Proff): person is Employee {
     return "role" in person;
 }
 
 // Функция с дженериком для логирования работников
-function logWorker<T extends Employee | Freelancer>(worker: T) {
+function logWorker<T extends Proff>(worker: T) {
     let additionalInformation: string;
 
     if (worker instanceof Employee) {

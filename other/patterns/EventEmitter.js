@@ -1,3 +1,57 @@
+class EventEmitterV3 {
+    constructor() {
+        this.container = new Map();
+    }
+
+    on(event, cb) {
+        if (this.container.has(event)) {
+            this.container.get(event).add(cb)
+            return this
+        }
+
+        this.container.set(event, new Set([cb]))
+        return this
+    }
+
+    off(event, cb) {
+        if (this.container.has(event)) {
+            this.container.get(event).delete(cb)
+            return this
+        }
+
+        if (this.container.size === 0) {
+            this.container.delete(event)
+        }
+
+        return this
+    }
+
+    emit(event) {
+        if (this.container.has(event)) {
+            this.container.get(event).forEach(cb => cb())
+            return this
+        }
+    }
+
+    once(event, cb) {
+        // Создаём обёртку, которая удаляет себя после первого вызова
+        const onceHandler = (...args) => {
+            cb(...args); // Вызываем оригинальный обработчик
+            this.off(event, onceHandler); // Удаляем себя из подписки
+        };
+
+        this.on(event, onceHandler);
+        return this;
+    }
+}
+const emitterv3 = new EventEmitter();
+
+emitterv3.once('init', (data) => {
+    console.log('Init event fired with:', data);
+});
+emitterv3.emit('init', 'Hello'); // "Init event fired with: Hello"
+emitterv3.emit('init', 'World'); // Ничего не произойдёт
+
 class EventEmitter {
     constructor() {
         this.events = new Map();

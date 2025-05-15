@@ -39,6 +39,20 @@ function throttleV2(func, limit) {
     }
 }
 
+function throttleV2_1(func, limit) {
+    let isThrottle;
+
+    return function (...args) {
+        if (!isThrottle) {
+            func.apply(this, args)
+
+            isThrottle = true
+
+            setTimeout(() => isThrottle = false, limit);
+        }
+    }
+}
+
 
 // throttle без this
 const throttle = (func, delay) => {
