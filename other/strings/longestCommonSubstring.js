@@ -37,3 +37,4 @@ function longestCommonSubstring(s1, s2) {
 console.log(longestCommonSubstring("abcde", "cdefg")); // 3 ("cde")
 console.log(longestCommonSubstring("abc", "abc"));     // 3
 console.log(longestCommonSubstring("abc", "def"));     // 0
+

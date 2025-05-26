@@ -10,15 +10,19 @@ export const atm = (amount: number, nominals, nominalsCount) => {
     let result = [];
 
     for (let i = nominals.length - 1; i > 0; i--) {
-        let nominal = nominals[i]
-        let maxAmountNominals = nominalsCount[i]
+        const currNominal = nominals[i];
 
-        let count = Math.min(Math.floor(rest / nominal), maxAmountNominals)
+        const remainder = Math.floor(rest / currNominal)
+        let maxAmountNominals = nominalsCount[i];
+        const getMaxAmountOfNominals = Math.min(maxAmountNominals, remainder);
 
-        if (count > 0) {
-            rest -= count * nominal
-            result.push(`${nominal}x${count}`)
+
+        if (getMaxAmountOfNominals > 0) {
+            rest -= getMaxAmountOfNominals * currNominal
+            result.push(`${currNominal}x${getMaxAmountOfNominals}`)
         }
+
+        if (rest === 0) break;
     }
 
     if (rest > 0) {
